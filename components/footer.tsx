@@ -122,9 +122,9 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6">
-              <Button className="bg-amber-700 hover:bg-amber-600 text-white rounded-md px-6 py-2 text-sm">
-                CONTACT US
-              </Button>
+              <Link href="/contact" passHref legacyBehavior>
+                <Button className="bg-amber-700 hover:bg-amber-600 text-white rounded-md px-6 py-2 text-sm">CONTACT US</Button>
+              </Link>
             </div>
           </div>
         </div>
