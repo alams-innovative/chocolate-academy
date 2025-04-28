@@ -63,9 +63,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-[600px] md:h-[700px]">
-        <Image src="/images/hero-bg.png" alt="Chocolate Academy Hero" fill className="object-cover" priority />
+        <Image src="/images/home/hero-banner.webp" alt="Chocolate Academy Hero" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 z-10">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Where Cocoa & Creativity <span className="text-amber-400">Collide!</span>
@@ -75,15 +75,17 @@ export default function Home() {
               workshops and events.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-white text-[#3c2415] hover:bg-amber-100 text-base px-6 py-6">
-                <Link href="/about">DISCOVER MORE</Link>
-              </Button>
-              <DeliveryModal />
+              <Link href="/about" passHref legacyBehavior>
+                <Button className="bg-white text-[#3c2415] hover:bg-amber-100 text-base px-6 py-6">DISCOVER MORE</Button>
+              </Link>
+              <Link href="/shop" passHref legacyBehavior>
+                <Button className="bg-amber-400 text-[#3c2415] hover:bg-amber-500 text-base px-6 py-6">ORDER NOW</Button>
+              </Link>
             </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full pointer-events-none">
             <path
               fill="#fdf6f0"
               fillOpacity="1"

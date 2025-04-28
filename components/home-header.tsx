@@ -259,22 +259,12 @@ export default function HomeHeader() {
             </nav>
 
             <div className="flex items-center space-x-4 flex-1 justify-end">
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                <Link href="#" className="text-white transition-transform duration-300 hover:text-amber-400">
-                  <Search className="h-4 w-4" />
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="#"
-                  className="text-white transition-transform duration-300 hover:text-amber-400 flex items-center"
-                >
-                  <ShoppingBag className="h-4 w-4" />
-                  <span className="ml-1 text-xs bg-amber-500 rounded-full h-4 w-4 flex items-center justify-center transition-all duration-300 hover:bg-amber-400">
-                    0
-                  </span>
-                </Link>
-              </motion.div>
+              <motion.button whileHover={{ scale: 1.2, rotate: 10 }} whileTap={{ scale: 0.9, rotate: -10 }} className="text-3xl transition-transform duration-300 hover:text-amber-400">
+                🍫
+              </motion.button>
+              <motion.button whileHover={{ scale: 1.2, rotate: -10 }} whileTap={{ scale: 0.9, rotate: 10 }} className="text-3xl transition-transform duration-300 hover:text-amber-400">
+                🎉
+              </motion.button>
             </div>
           </div>
         </div>

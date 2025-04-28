@@ -18,9 +18,9 @@ export default function Footer() {
           <div className="flex items-center space-x-4">
             <span className="hidden md:inline-block mr-2 text-amber-400 font-medium">FOLLOW US</span>
             {[
-              { Icon: Facebook, href: "#", label: "Facebook" },
-              { Icon: Instagram, href: "#", label: "Instagram" },
-              { Icon: Twitter, href: "#", label: "Twitter" },
+              { Icon: Facebook, href: "https://facebook.com/chocolateacademy.pk", label: "Facebook" },
+              { Icon: Instagram, href: "https://instagram.com/chocolateacademy.pk", label: "Instagram" },
+              { Icon: Twitter, href: "https://twitter.com/chocolateacademy_pk", label: "Twitter" },
             ].map(({ Icon, href, label }, index) => (
               <Link
                 key={index}
@@ -59,7 +59,6 @@ export default function Footer() {
                 { name: "SHOP", href: "/shop" },
                 { name: "COURSES", href: "/courses/workshops" },
                 { name: "GALLERY", href: "/gallery" },
-                { name: "BLOG", href: "/blog" },
                 { name: "CONTACT", href: "/contact" },
                 { name: "GIFTING", href: "/gifting" },
               ].map((item, index) => (
@@ -83,11 +82,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm text-gray-300">
               {[
-                { name: "CHOCOLATE BONBONS", href: "/shop?category=bonbons" },
-                { name: "CAKES", href: "/shop?category=cakes" },
-                { name: "PASTRIES", href: "/shop?category=pastries" },
-                { name: "GIFT HAMPERS", href: "/shop?category=hampers" },
-                { name: "CHOCOLATE BARS", href: "/shop?category=bars" },
+                { name: "CHOCOLATE BONBONS", href: "/shop#chocolate-bonbons" },
+                { name: "CAKES", href: "/shop#cakes" },
+                { name: "BROWNIES", href: "/shop#brownies" },
+                { name: "WORKSHOPS", href: "/shop#workshops" },
+                { name: "HEALTHY SNACKS", href: "/shop#healthy-snacks" },
               ].map((item, index) => (
                 <li key={index}>
                   <Link
@@ -134,7 +133,7 @@ export default function Footer() {
         <div className="border-t border-[#5a3a28] pt-8 text-center">
           <div className="flex justify-center mb-6">
             <Image
-              src="/images/chocolate-icon.png"
+              src="/images/favicon.webp"
               alt="Chocolate Icon"
               width={40}
               height={40}
@@ -144,16 +143,8 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Chocolate Academy Pakistan. All rights reserved.
           </p>
-          <div className="flex justify-center mt-4 space-x-4 text-xs text-gray-500">
-            <Link href="#" className="hover:text-amber-400 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-amber-400 transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="#" className="hover:text-amber-400 transition-colors">
-              Sitemap
-            </Link>
+          <div className="flex justify-center mt-4 text-xs text-gray-500">
+            Powered by <a href="http://alamsinnovative.com" target="_blank" rel="noopener noreferrer" className="ml-1 text-amber-400 hover:underline">alamsinnovate</a>
           </div>
         </div>
       </div>

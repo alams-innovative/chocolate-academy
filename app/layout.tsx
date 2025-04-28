@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Chocolate Academy Pakistan",
   description: "Discover the Art of Fine Chocolate at Chocolate Academy Pakistan",
-    generator: 'v0.dev'
+    generator: 'Fawad Mughal'
 }
 
 export default function RootLayout({
@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>     
+        <link rel="icon" href="/images/favicon.webp" type="image/webp" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}

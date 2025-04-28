@@ -82,44 +82,6 @@ export default function ShopPage() {
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-8">
-                  <h3 className="text-lg font-bold mb-4 text-[#3c2415] relative inline-block">
-                    Price Range
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-amber-400"></span>
-                  </h3>
-                  <div className="space-y-2">
-                    {["Under Rs. 1,000", "Rs. 1,000 - Rs. 2,000", "Rs. 2,000 - Rs. 3,000", "Above Rs. 3,000"].map(
-                      (range, index) => (
-                        <div key={index} className="flex items-center">
-                          <input type="checkbox" id={`price-${index}`} className="mr-2" />
-                          <label htmlFor={`price-${index}`} className="text-[#3c2415]">
-                            {range}
-                          </label>
-                        </div>
-                      ),
-                    )}
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <h3 className="text-lg font-bold mb-4 text-[#3c2415] relative inline-block">
-                    Dietary
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-amber-400"></span>
-                  </h3>
-                  <div className="space-y-2">
-                    {["Vegan", "Gluten Free", "Lactose Free", "Sugar Free"].map((diet, index) => (
-                      <div key={index} className="flex items-center">
-                        <input type="checkbox" id={`diet-${index}`} className="mr-2" />
-                        <label htmlFor={`diet-${index}`} className="text-[#3c2415]">
-                          {diet}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <Button className="w-full mt-8 bg-[#3c2415] hover:bg-[#5a3a28]">Apply Filters</Button>
               </div>
             </div>
 
