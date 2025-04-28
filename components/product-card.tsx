@@ -1,16 +1,43 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Eye, Heart, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Product } from "@/lib/products"
+import { useState } from "react"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
 
 interface ProductCardProps {
   product: Product
 }
 
+const cityNumbers = {
+  lahore: "0309-3336142",
+  islamabad: "0326-8079985",
+  karachi: "0333-6669828",
+  faisalabad: "0309-7778646",
+  rawalpindi: "0309-3336144"
+}
+
 export default function ProductCard({ product }: ProductCardProps) {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedCity, setSelectedCity] = useState<keyof typeof cityNumbers | null>(null)
+
   const whatsappMessage = `Hello, I'm interested in the ${product.name} from Chocolate Academy Pakistan.`
-  const whatsappUrl = `https://wa.me/923294329451?text=${encodeURIComponent(whatsappMessage)}`
+
+  const handleWhatsappClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setModalOpen(true)
+  }
+
+  const handleCitySelect = (city: keyof typeof cityNumbers) => {
+    setSelectedCity(city)
+    setModalOpen(false)
+    const number = cityNumbers[city].replace(/-/g, "")
+    const url = `https://wa.me/92${number}?text=${encodeURIComponent(whatsappMessage)}`
+    window.open(url, "_blank")
+  }
 
   return (
     <div className="group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
@@ -77,7 +104,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               <span className="text-amber-800 font-bold">Rs. {product.price.toLocaleString()}</span>
             )}
           </div>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+          <a href="#" onClick={handleWhatsappClick}>
             <Button
               size="sm"
               className="rounded-full bg-green-600 hover:bg-green-700 text-white h-8 w-8 p-0 flex items-center justify-center"
@@ -99,6 +126,18 @@ export default function ProductCard({ product }: ProductCardProps) {
           </a>
         </div>
       </div>
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="max-w-xs text-center">
+          <h3 className="text-lg font-bold mb-4">Select Your City</h3>
+          <div className="flex flex-col gap-2">
+            {Object.entries(cityNumbers).map(([city, number]) => (
+              <Button key={city} variant="outline" onClick={() => handleCitySelect(city as keyof typeof cityNumbers)}>
+                {city.charAt(0).toUpperCase() + city.slice(1)}
+              </Button>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
