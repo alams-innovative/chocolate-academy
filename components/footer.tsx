@@ -144,7 +144,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Chocolate Academy Pakistan. All rights reserved.
           </p>
           <div className="flex justify-center mt-4 text-xs text-gray-500">
-            Powered by <a href="http://alamsinnovative.com" target="_blank" rel="noopener noreferrer" className="ml-1 text-amber-400 hover:underline">alamsinnovate</a>
+            Powered by <a href="http://alamsinnovate.com" target="_blank" rel="noopener noreferrer" className="ml-1 text-amber-400 hover:underline">alamsinnovate</a>
           </div>
         </div>
       </div>
