@@ -19,7 +19,7 @@ export default function HomeHeader() {
     { name: "SHOP", href: "/shop" },
     { name: "GIFTING", href: "/gifting" },
     {
-      name: "COURSES ▾",
+      name: "COURSES ",
       href: "#",
       dropdown: [
         { name: "Workshops", href: "/courses/workshops" },
