@@ -83,7 +83,7 @@ export default function ContactPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/Contact-Us.jpg"
+          src="/images/Contact-us.jpg"
           alt="Contact Chocolate Academy"
           fill
           className="object-cover brightness-75"
