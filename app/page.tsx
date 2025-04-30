@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronRight } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import HomeHeader from "@/components/home-header"
+import HomeHeader from "@/components/header"
 import Footer from "@/components/footer"
 import DeliveryModal from "@/components/delivery-modal"
 
@@ -344,7 +344,7 @@ export default function Home() {
                       asChild
                       variant="outline"
                       size="sm"
-                      className="rounded-full border-white text-white hover:bg-white hover:text-[#b08968]"
+                      className="rounded-full border-white text-black hover:bg-white hover:text-[#b08968]"
                     >
                       <Link href="/courses/workshops">VIEW DETAILS</Link>
                     </Button>
@@ -357,7 +357,7 @@ export default function Home() {
                   asChild
                   variant="outline"
                   size="sm"
-                  className="rounded-full border-white text-white hover:bg-white hover:text-[#b08968]"
+                  className="rounded-full border-white  text-black hover:bg-white hover:text-[#b08968]"
                 >
                   <Link href="/courses/register">REGISTER NOW</Link>
                 </Button>

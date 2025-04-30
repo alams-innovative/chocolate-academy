@@ -344,7 +344,7 @@ export default function ProgramDetailPage({ params }: { params: { id: string } }
                   </Link>
 
                   <a
-                    href={`https://wa.me/923294329451?text=Hello,%20I'm%20interested%20in%20the%20${encodeURIComponent(program.title)}%20program.`}
+                    href={`https://wa.me/923248842000?text=Hello,%20I'm%20interested%20in%20the%20${encodeURIComponent(program.title)}%20program.`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

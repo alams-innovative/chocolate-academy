@@ -83,7 +83,7 @@ export default function ContactPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/contact/contact-banner.png"
+          src="/images/Contact-Us.jpg"
           alt="Contact Chocolate Academy"
           fill
           className="object-cover brightness-75"
@@ -323,7 +323,7 @@ export default function ContactPage() {
                     business hours.
                   </p>
                   <a
-                    href="https://wa.me/923093336142?text=Hello,%20I'd%20like%20to%20inquire%20about%20Chocolate%20Academy%20Pakistan."
+                    href="https://wa.me/923248842000?text=Hello,%20I'd%20like%20to%20inquire%20about%20Chocolate%20Academy%20Pakistan."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"

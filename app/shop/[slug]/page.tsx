@@ -37,7 +37,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {/* Page Title Image with Centered Title and Breadcrumb */}
       <div className="w-full relative h-48 md:h-64 mb-4 flex items-center justify-center">
         <Image
-          src="/images/shop-title.jpg" // Replace with your actual image path
+          src="/images/shop.jpg" // Replace with your actual image path
           alt="Shop Page Title"
           fill
           className="object-cover"

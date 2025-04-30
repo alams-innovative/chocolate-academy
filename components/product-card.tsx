@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image"
 import Link from "next/link"
 import { Eye, Heart, Star } from "lucide-react"
@@ -23,9 +22,7 @@ const cityNumbers = {
 export default function ProductCard({ product }: ProductCardProps) {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedCity, setSelectedCity] = useState<keyof typeof cityNumbers | null>(null)
-
   const whatsappMessage = `Hello, I'm interested in the ${product.name} from Chocolate Academy Pakistan.`
-
   const handleWhatsappClick = (e: React.MouseEvent) => {
     e.preventDefault()
     setModalOpen(true)

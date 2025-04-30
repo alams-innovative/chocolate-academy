@@ -40,7 +40,7 @@ export default function BirthdayGiftingPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/gifting/birthday-banner.png"
+          src="/images/Birthday-Gifts.jpg"
           alt="Birthday Gifting"
           fill
           className="object-cover brightness-75"
@@ -78,7 +78,7 @@ export default function BirthdayGiftingPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="relative h-80 rounded-lg overflow-hidden shadow-xl">
-              <Image src="/images/gifting/birthday-intro.png" alt="Birthday Gifting" fill className="object-cover" />
+              <Image src="/images/Birthday-Gifts.jpg" alt="Birthday Gifting" fill className="object-cover" />
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-6 text-[#3c2415]">Celebrate Special Moments with Chocolate</h2>
@@ -93,7 +93,7 @@ export default function BirthdayGiftingPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://wa.me/923294329451?text=Hello,%20I'm%20interested%20in%20birthday%20gifting%20options%20from%20Chocolate%20Academy%20Pakistan."
+                  href="https://wa.me/923248842000?text=Hello,%20I'm%20interested%20in%20birthday%20gifting%20options%20from%20Chocolate%20Academy%20Pakistan."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -299,7 +299,7 @@ export default function BirthdayGiftingPage() {
               </div>
 
               <a
-                href="https://wa.me/923294329451?text=Hello,%20I'd%20like%20to%20inquire%20about%20a%20custom%20birthday%20gift%20from%20Chocolate%20Academy%20Pakistan."
+                href="https://wa.me/923248842000?text=Hello,%20I'd%20like%20to%20inquire%20about%20a%20custom%20birthday%20gift%20from%20Chocolate%20Academy%20Pakistan."
                 target="_blank"
                 rel="noopener noreferrer"
               >

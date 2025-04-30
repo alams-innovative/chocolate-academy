@@ -47,7 +47,7 @@ export default function IntensiveProgramsPage() {
       {/* Page Banner */}
       <section className="relative h-[400px] overflow-hidden">
         <Image
-          src="/images/courses/intensive-banner.png"
+          src="/images/Workshops-&-Courses.jpg"
           alt="Intensive Programs"
           fill
           className="object-cover brightness-75"
@@ -154,7 +154,7 @@ export default function IntensiveProgramsPage() {
                       <Button className="bg-[#3c2415] hover:bg-[#5a3a28] text-white">View Program Details</Button>
                     </Link>
                     <a
-                      href={`https://wa.me/923294329451?text=Hello,%20I'm%20interested%20in%20the%20${encodeURIComponent(program.title)}%20program.`}
+                      href={`https://wa.me/923248842000?text=Hello,%20I'm%20interested%20in%20the%20${encodeURIComponent(program.title)}%20program.`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -346,7 +346,7 @@ export default function IntensiveProgramsPage() {
               <Button className="bg-amber-500 hover:bg-amber-600 text-white text-lg px-8 py-6">Apply Now</Button>
             </Link>
             <a
-              href="https://wa.me/923294329451?text=Hello,%20I'd%20like%20to%20learn%20more%20about%20your%20intensive%20programs."
+              href="https://wa.me/923248842000?text=Hello,%20I'd%20like%20to%20learn%20more%20about%20your%20intensive%20programs."
               target="_blank"
               rel="noopener noreferrer"
             >

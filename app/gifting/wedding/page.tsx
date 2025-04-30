@@ -40,7 +40,7 @@ export default function WeddingGiftingPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/gifting/wedding-banner.png"
+          src="/images/Wedding-Gifts.jpg"
           alt="Wedding Gifting"
           fill
           className="object-cover brightness-75"
@@ -91,7 +91,7 @@ export default function WeddingGiftingPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://wa.me/923294329451?text=Hello,%20I'm%20interested%20in%20wedding%20gifting%20options%20from%20Chocolate%20Academy%20Pakistan."
+                  href="https://wa.me/923248842000?text=Hello,%20I'm%20interested%20in%20wedding%20gifting%20options%20from%20Chocolate%20Academy%20Pakistan."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -122,7 +122,7 @@ export default function WeddingGiftingPage() {
               </div>
             </div>
             <div className="relative h-80 rounded-lg overflow-hidden shadow-xl order-1 md:order-2">
-              <Image src="/images/gifting/wedding-intro.png" alt="Wedding Gifting" fill className="object-cover" />
+              <Image src="/images/Wedding-Gifts.jpg" alt="Wedding Gifting" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -300,7 +300,7 @@ export default function WeddingGiftingPage() {
           <div className="mt-12 text-center">
             <h3 className="text-xl font-bold mb-6 text-[#3c2415]">Ready to sweeten your wedding day?</h3>
             <a
-              href="https://wa.me/923294329451?text=Hello,%20I'd%20like%20to%20discuss%20wedding%20favors%20from%20Chocolate%20Academy%20Pakistan."
+              href="https://wa.me/923248842000?text=Hello,%20I'd%20like%20to%20discuss%20wedding%20favors%20from%20Chocolate%20Academy%20Pakistan."
               target="_blank"
               rel="noopener noreferrer"
             >

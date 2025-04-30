@@ -285,7 +285,7 @@ export default function WorkshopsPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/courses/workshops-banner.png"
+          src="/images/Workshops-&-Courses.jpg"
           alt="Chocolate Academy Workshops"
           fill
           className="object-cover brightness-75"
@@ -351,7 +351,7 @@ export default function WorkshopsPage() {
                   <h4 className="font-bold mb-2">Need Help?</h4>
                   <p className="text-sm mb-3">Contact our course advisors for personalized guidance.</p>
                   <a
-                    href="https://wa.me/923294329451?text=Hello,%20I'm%20interested%20in%20learning%20more%20about%20your%20courses."
+                    href="https://wa.me/923248842000?text=Hello,%20I'm%20interested%20in%20learning%20more%20about%20your%20courses."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-green-600 text-white text-sm py-2 px-4 rounded flex items-center justify-center"

@@ -33,7 +33,7 @@ export default function GiftingPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/gifting/gifting-banner.png"
+          src="/images/Gifts.jpg"
           alt="Chocolate Gifting"
           fill
           className="object-cover brightness-75"
@@ -232,7 +232,7 @@ export default function GiftingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/923294329451?text=Hello,%20I'm%20interested%20in%20ordering%20chocolate%20gifts%20from%20Chocolate%20Academy%20Pakistan."
+              href="https://wa.me/923248842000?text=Hello,%20I'm%20interested%20in%20ordering%20chocolate%20gifts%20from%20Chocolate%20Academy%20Pakistan."
               target="_blank"
               rel="noopener noreferrer"
             >

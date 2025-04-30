@@ -29,7 +29,7 @@ export default function ShopPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/shop-banner.png"
+          src="/images/shop.jpg"
           alt="Chocolate Shop"
           fill
           className="object-cover brightness-75"

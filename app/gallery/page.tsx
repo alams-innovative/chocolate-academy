@@ -142,7 +142,7 @@ export default function GalleryPage() {
       {/* Page Banner */}
       <section className="relative h-[300px] overflow-hidden">
         <Image
-          src="/images/gallery/gallery-banner.png"
+          src="/images/Our-Gallery.jpg"
           alt="Chocolate Academy Gallery"
           fill
           className="object-cover brightness-75"

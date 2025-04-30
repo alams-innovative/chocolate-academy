@@ -133,7 +133,7 @@ export default function Footer() {
         <div className="border-t border-[#5a3a28] pt-8 text-center">
           <div className="flex justify-center mb-6">
             <Image
-              src="/images/favicon.webp"
+              src="/images/footer-logo-1.png"
               alt="Chocolate Icon"
               width={40}
               height={40}
