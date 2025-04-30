@@ -390,7 +390,7 @@ export default function RegisterPage() {
                     <div>
                       <div className="relative h-48 mb-4 overflow-hidden rounded-md">
                         <Image
-                          src={`/images/courses/${selectedCourse.id}.png`}
+                          src={`/images/courses/${selectedCourse.id}.jpg`}
                           alt={selectedCourse.title}
                           fill
                           className="object-cover"
