@@ -91,31 +91,24 @@ export default function RegisterPage() {
     setIsSubmitting(true)
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-
-      // In a real application, you would send the form data to your server
-      // which would then email it to alams.com.ai@gmail.com
-      console.log("Form submitted:", formData)
-
-      setIsSubmitted(true)
-      toast({
-        title: "Registration successful!",
-        description: "We've received your registration and will contact you shortly.",
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       })
-
-      // Reset form after successful submission
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        address: "",
-        city: "",
-        course: courseId || "",
-        paymentMethod: "bank-transfer",
-        message: "",
-        agreeTerms: false,
-      })
+      if (res.ok) {
+        setIsSubmitted(true)
+        toast({
+          title: "Registration successful!",
+          description: "We've received your registration and will contact you shortly.",
+        })
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: "Please try again later.",
+          variant: "destructive",
+        })
+      }
     } catch (error) {
       console.error("Error submitting form:", error)
       toast({
@@ -136,7 +129,7 @@ export default function RegisterPage() {
       {/* Page Banner */}
       <section className="relative h-[200px] overflow-hidden">
         <Image
-          src="/images/courses/register-banner.png"
+          src="/images/Contact-us.jpg"
           alt="Course Registration"
           fill
           className="object-cover brightness-75"
@@ -445,7 +438,7 @@ export default function RegisterPage() {
                       <div className="text-sm text-gray-600">
                         <p>Need help with registration?</p>
                         <a
-                          href="https://wa.me/923294329451?text=Hello,%20I%20need%20help%20with%20course%20registration."
+                          href="https://wa.me/923248842000?text=Hello,%20I%20need%20help%20with%20course%20registration."
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center text-green-600 mt-2"
