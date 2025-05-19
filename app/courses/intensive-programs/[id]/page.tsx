@@ -15,132 +15,116 @@ const programs = [
     description:
       "This 04-week premium Cake decoration and fondant art course will equip you with the knowledge and tools to slay any designer cake project your client demand. Master the art of making incredible cakes with a distinctive approach in a one-of-its-kind learning institute. The ultimate purpose of this 01-month course is to equip you with the basic and professional skills of handling fondant and buttercream. This course will include thorough sessions in which you will be provided with all the food material and a separate recipe book. After the course, students will be able to design their own fondant cakes as a final project.",
     image: "/images/courses/cake-decor.webp",
-    duration: "04 weeks",
+    duration: "1 month",
     level: "Beginner to Advanced",
-    certification: "International Chocolate Academy, CDFA",
+    certification: "International Chocolate Academy",
     price: 75000,
     startDates: ["January 15, 2025", "March 10, 2025", "June 5, 2025"],
     curriculum: [
-      "Baking a cake using the creamy method,Making cake icing from scratch, Leveling cake layer, cake filling, crumb coating, and smooth frosting of cakes, Stabilizing single heightened cake",
-      "Making Fondant from Scratch, Coloring the fondant, Preserving the fondant, Covering the cake with fondant, Sharpening the fondant cake edges, Using fondant tools in fondant decoration (roses, peony flowers, characters).",
-      "Stabilizing two-tier cake with buttercream and fondant, Making gravity-defying cake, Character Molding and balancing, 3D Cake",
-      "Learning to professionally stable three-tier cake with a stand, Costing an overview of the business of baking, The participants will cover two wedding cakes in three tiers, 3D Cake",
+      "Week 1: Baking a cake using the creamy method, Making cake icing from scratch, Leveling cake layer, cake filling, crumb coating, and smooth frosting of cakes, Stabilizing single heightened cake",
+      "Week 2: Making Fondant from Scratch, Coloring the fondant, Preserving the fondant, Covering the cake with fondant, Sharpening the fondant cake edges, Using fondant tools in fondant decoration (roses, peony flowers, characters)",
+      "Week 3: Stabilizing two-tier cake with buttercream and fondant, Making gravity-defying cake, Character Molding and balancing, 3D Cake",
+      "Week 4: Learning to professionally stable three-tier cake with a stand, Costing an overview of the business of baking, The participants will cover two wedding cakes in three tiers, 3D Cake"
     ],
     instructors: [
       {
-        name: "Miss Faiza",
+        name: "Chef Marie",
         title: "Master Cake Artist",
-        bio: "With over 15 years of experience in cake artistry, Miss Faiza has trained with renowned cake decorators in Europe and has created cakes for celebrities and royal families.",
-      },
+        bio: "With over 20 years of experience in cake artistry, Chef Marie specializes in fondant and buttercream techniques.",
+      }
     ],
     detailedCurriculum: {
-      sauces: [
-        "Ganache",
-        "Coffee ganache",
-        "Fudge sauce",
-        "Caramel sauce",
-        "Salted caramel sauce",
-        "Butterscotch sauce"
-      ],
-      buttercream: [
-        "Simple Buttercream",
-        "American Buttercream",
-        "Swiss Meringue Buttercream",
-        "Cream Cheese Buttercream"
-      ],
-      flavors: [
-        "Vanilla sponge cake with cocktail filling",
-        "Chocolate sponge cake",
-        "Chocolate fudge cake",
-        "Alaska cake with meringues",
-        "Caramel crunch cake",
-        "Red-velvet cake",
-        "Over-loaded chocolate cake",
-        "Snicker cake",
-        "Oreo Delight cake",
-        "Chocolate crunch cake",
-        "Nutella roasted almond cake"
-      ],
-      complementary: [
-        "Business support",
+      complementaryClasses: [
+        "Business Support",
         "Social Media Marketing",
-        "Food Safety and Hygiene"
+        "Food Safety & Hygiene"
       ]
     }
   },
   {
-    id: "grand-diploma-chocolate",
-    title: "Grand Diploma in Chocolate & Pastry",
+    id: "grand-diplome-en-chocolat-et-pattisserie",
+    title: "Grand Diplome en Chocolat Et Pattisserie",
     description:
-      "Grand Diploma in Chocolate and Patisserie is a 16-week, highly extensive, practical program. In this diploma, students will acquire the essential techniques for making highly technical pastry and chocolate products by mastering tastes, textures, and shapes. This course is specifically designed to provide the necessary skills for making pastry and chocolate products by grasping the main ingredients masters use to make their chef-d'oeuvre. By investing your 18 weeks in this program you will get to understand the working environment of a professional kitchen and master the most iconic recipes of chocolate and pastry along with fillings, sponges, mousses, glazes, and desserts.",
+      "A comprehensive 4-month program covering everything from theory and techniques to advanced chocolate mastery and entrepreneurship. This intensive course includes 14 core modules and complementary business classes, preparing you for a successful career in the culinary arts industry.",
     image: "/images/courses/choc.webp",
-    duration: "04 months",
+    duration: "4 months",
     level: "Professional",
-    certification: "International Chocolate Academy, CDFA",
-    price: 300000,
-    startDates: [" "],
+    certification: "GPDP, TYPSY AUSTRALIA, ICM UK, INTERNATIONAL CHOCOLATE ACADEMY, HIGHFIELD UK",
+    price: 425000,
+    startDates: ["January 15, 2025", "April 15, 2025", "July 15, 2025"],
     curriculum: [
       "Theory and Techniques",
       "Cakes",
       "Pastry Passion",
-      "French pastry",
-      "Ice-cream Week",
-      "Modern Dessert and Entremets",
+      "French Patisserie",
+      "Ice-Cream Delights",
+      "Modern Desserts and Entremets",
       "Cake Decoration and Fondant Art",
-      "Chocolate Skills",
+      "Chocolate Mastery",
       "Artisan Bread",
-      "Quick Bread",
-      "Breakfast Items",
-      "Hi-tea Trolley Week",
-      "Complementary Classes",
-      "Final Display and Competition",
+      "Quick Breads",
+      "Breakfast Creations",
+      "Hi-TEA Delights",
+      "Entrepreneurship Masterclasses",
+      "Patisserie Showcase and Challenges"
     ],
     instructors: [
       {
-        name: "Miss Simran",
-        title: "Head Pastry Chef",
-        bio: "A graduate of Le Cordon Bleu Paris, Miss Simran has worked in Michelin-starred restaurants across Europe before joining Chocolate Academy.",
-      },
+        name: "Chef Marie",
+        title: "Master Pastry Chef",
+        bio: "With over 20 years of experience in prestigious hotels across Europe and Asia, Chef Marie specializes in French patisserie and chocolate work.",
+      }
     ],
     detailedCurriculum: {
-      // ...different structure or content
+      complementaryClasses: [
+        "Business Support",
+        "Social Media Marketing",
+        "Food Safety & Hygiene"
+      ]
     }
   },
   {
     id: "grand-diploma-culinary",
-    title: "Grand Diploma in Culinary & Finishing Arts",
+    title: "Grand Diplome en Culinary & Finishing Arts",
     description:
-      "Grand Diploma in Chocolate and Patisserie is a 16-week, highly extensive, practical program. In this diploma, students will acquire the essential techniques for making highly technical culinary creations with professional finishing.",
+      "A comprehensive 16-week program covering essential culinary techniques, international cuisines, and professional finishing arts. This intensive course includes 15 core modules and complementary business classes, preparing you for a successful career in the culinary arts industry.",
     image: "/images/courses/cul.webp",
     duration: "16 weeks",
     level: "Professional",
-    certification: "International Chocolate Academy, ICM UK",
-    price: 350000,
-    startDates: [""],
+    certification: "GPDP, TYPSY AUSTRALIA, ICM UK, INTERNATIONAL CHOCOLATE ACADEMY, HIGHFIELD UK",
+    price: 450000,
+    startDates: ["January 15, 2025", "April 15, 2025", "July 15, 2025"],
     curriculum: [
-      "Classical and modern cooking techniques",
-      "Knife skills and food preparation",
-      "International cuisines and flavor profiles",
-      "Meat, poultry, and seafood fabrication",
-      "Sauce making and flavor development",
-      "Plating and food presentation",
-      "Menu planning and development",
-      "Food cost control and kitchen management",
-      "Culinary nutrition and dietary considerations",
-      "Advanced food styling and photography",
+      "Essential Techniques",
+      "Health-Focused Cuisine",
+      "Soups, Salads, Sandwiches",
+      "Taste of Asia",
+      "Mediterranean Marvels",
+      "Flavors of the World",
+      "South Asian Delicacies",
+      "Breakfast Globally",
+      "Seafood Mastery",
+      "Fast & Flavorful Temptations",
+      "Art of Desserts",
+      "Hi-TEA Delights",
+      "Culinary Finesse",
+      "Entrepreneurship Classes",
+      "Culinary Showcase"
     ],
     instructors: [
       {
-        name: "Sir Abdul Rahman",
-        title: "Executive Chef",
-        bio: "With experience in 5-star hotels across the Middle East and Asia, Sir Abdul Rahman brings a wealth of international culinary knowledge to the program.",
-      },
-      {
-        name: "Sir Sameer",
-        title: "Culinary Arts Specialist",
-        bio: "A specialist in modern culinary techniques and food styling, Sir Sameer has worked with top food photographers and has published several cookbooks.",
-      },
+        name: "Chef Marie",
+        title: "Master Chef",
+        bio: "With over 20 years of experience in prestigious hotels across Europe and Asia, Chef Marie specializes in international cuisine and culinary arts.",
+      }
     ],
+    detailedCurriculum: {
+      complementaryClasses: [
+        "Business Support",
+        "Social Media Marketing",
+        "Food Safety & Hygiene"
+      ]
+    }
   },
 ]
 
@@ -270,6 +254,32 @@ export default function ProgramDetailPage({ params }: { params: { id: string } }
                     Each module builds upon the previous one, ensuring a structured learning experience.
                   </p>
 
+                  {program.id === "grand-diplome-en-chocolat-et-pattisserie" ? (
+                    <div className="space-y-8">
+                      <div>
+                        <h4 className="font-bold text-lg text-[#3c2415] mb-4">Course Modules</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {program.curriculum.map((item, index) => (
+                            <div key={index} className="border-l-4 border-amber-800 pl-4 py-2">
+                              <h5 className="font-semibold text-[#3c2415]">Module {index + 1}</h5>
+                              <p className="text-gray-700 text-sm">{item}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {program.detailedCurriculum?.complementaryClasses && (
+                        <div>
+                          <h4 className="font-bold text-lg text-[#3c2415] mb-4">Complementary Classes</h4>
+                          <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                            {program.detailedCurriculum.complementaryClasses.map((item, idx) => (
+                              <li key={idx}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
                   <div className="space-y-6">
                     {program.curriculum.map((item, index) => (
                       <div key={index} className="border-l-4 border-amber-800 pl-4">
@@ -278,6 +288,7 @@ export default function ProgramDetailPage({ params }: { params: { id: string } }
                       </div>
                     ))}
                   </div>
+                  )}
                 </TabsContent>
 
                 <TabsContent value="instructors" className="bg-white p-6 rounded-b-lg shadow-md">

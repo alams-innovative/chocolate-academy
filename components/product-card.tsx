@@ -1,11 +1,14 @@
 "use client"
 import Image from "next/image"
+import type React from "react"
+
 import Link from "next/link"
 import { Eye, Heart, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Product } from "@/lib/products"
 import { useState } from "react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { trackWhatsAppClick } from "@/lib/analytics"
 
 interface ProductCardProps {
   product: Product
@@ -16,13 +19,14 @@ const cityNumbers = {
   islamabad: "0326-8079985",
   karachi: "0333-6669828",
   faisalabad: "0309-7778646",
-  rawalpindi: "0309-3336144"
+  rawalpindi: "0309-3336144",
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedCity, setSelectedCity] = useState<keyof typeof cityNumbers | null>(null)
   const whatsappMessage = `Hello, I'm interested in the ${product.name} from Chocolate Academy Pakistan.`
+
   const handleWhatsappClick = (e: React.MouseEvent) => {
     e.preventDefault()
     setModalOpen(true)
@@ -31,6 +35,16 @@ export default function ProductCard({ product }: ProductCardProps) {
   const handleCitySelect = (city: keyof typeof cityNumbers) => {
     setSelectedCity(city)
     setModalOpen(false)
+
+    // Track this click
+    trackWhatsAppClick({
+      productId: product.id.toString(),
+      productName: product.name,
+      city: city,
+      source: "product_card",
+      buttonLocation: "product_card_whatsapp_button",
+    })
+
     const number = cityNumbers[city].replace(/-/g, "")
     const url = `https://wa.me/92${number}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(url, "_blank")

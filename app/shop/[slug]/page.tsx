@@ -10,13 +10,14 @@ import { Button } from "@/components/ui/button"
 import { products } from "@/lib/products"
 import ProductCard from "@/components/product-card"
 import { useState } from "react"
+import { trackWhatsAppClick } from "@/lib/analytics"
 
 const cityNumbers = {
   lahore: "0309-3336142",
   islamabad: "0326-8079985",
   karachi: "0333-6669828",
   faisalabad: "0309-7778646",
-  rawalpindi: "0309-3336144"
+  rawalpindi: "0309-3336144",
 }
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
@@ -29,6 +30,22 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   // Get related products (same category, excluding current product)
   const relatedProducts = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4)
+
+  const handleWhatsAppClick = (city: string) => {
+    // Track this click
+    trackWhatsAppClick({
+      productId: product.id.toString(),
+      productName: product.name,
+      city: city,
+      source: "product_detail_page",
+      buttonLocation: "product_detail_whatsapp_button",
+    })
+
+    const number = cityNumbers[city as keyof typeof cityNumbers].replace(/-/g, "")
+    const whatsappMessage = `Hello, I'm interested in the ${product.name} from Chocolate Academy Pakistan. Product URL: ${product.slug}`
+    const url = `https://wa.me/92${number}?text=${encodeURIComponent(whatsappMessage)}`
+    window.open(url, "_blank")
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -44,11 +61,17 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           priority
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-2 text-center">{product.name}</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-2 text-center">
+            {product.name}
+          </h1>
           <nav className="flex items-center space-x-2 text-lg">
-            <Link href="/" className="text-white hover:text-amber-400 transition-colors">Home</Link>
+            <Link href="/" className="text-white hover:text-amber-400 transition-colors">
+              Home
+            </Link>
             <ChevronRight className="h-5 w-5 text-white" />
-            <Link href="/shop" className="text-white hover:text-amber-400 transition-colors">Shop</Link>
+            <Link href="/shop" className="text-white hover:text-amber-400 transition-colors">
+              Shop
+            </Link>
             <ChevronRight className="h-5 w-5 text-white" />
             <Link
               href={`/shop#${product.category.toLowerCase().replace(/\s+/g, "-")}`}
@@ -121,31 +144,26 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <a
-                    href={`https://wa.me/${cityNumbers[selectedCity as keyof typeof cityNumbers].replace(/-/g, "")}?text=${encodeURIComponent(
-                      `Hello, I'm interested in the ${product.name} from Chocolate Academy Pakistan. Product URL: ${product.slug}`,
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Button
+                    className="w-full bg-green-600 hover:bg-green-700 flex items-center justify-center"
+                    onClick={() => handleWhatsAppClick(selectedCity)}
                   >
-                    <Button className="w-full bg-green-600 hover:bg-green-700 flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="white"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="mr-2"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                      </svg>
-                      Order on WhatsApp
-                    </Button>
-                  </a>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="white"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="mr-2"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    Order on WhatsApp
+                  </Button>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">

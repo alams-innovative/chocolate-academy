@@ -11,32 +11,35 @@ const programs = [
     id: "cake-decoration",
     title: "Cake Decoration & Fondant Art",
     description:
-      "Get an internationally recognized certification in this 01-month course that will equip you with the basic and professional skills of handling fondant and buttercream.",
+      "This 04-week premium Cake decoration and fondant art course will equip you with the knowledge and tools to slay any designer cake project your client demand. Master the art of making incredible cakes with a distinctive approach in a one-of-its-kind learning institute.",
     image: "/images/courses/cake-decor.webp",
     duration: "1 month",
     level: "Beginner to Advanced",
     certification: "International Chocolate Academy",
+    charges: "PKR 75,000"
   },
   {
-    id: "grand-diploma-chocolate",
-    title: "Grand Diploma in Chocolate & Pastry",
+    id: "grand-diplome-en-chocolat-et-pattisserie",
+    title: "Grand Diplome en Chocolat Et Pattisserie",
     description:
-      "Grand Diploma in Chocolate and Patisserie is a 16-week, highly extensive, practical program. In this diploma, students will acquire the essential techniques for making highly technical chocolate creations and pastries.",
+      "A comprehensive 4-month program covering everything from theory and techniques to advanced chocolate mastery and entrepreneurship. This intensive course includes 14 core modules and complementary business classes, preparing you for a successful career in the culinary arts industry.",
     image: "/images/courses/choc.webp",
-    duration: "16 weeks",
+    duration: "4 months",
     level: "Professional",
-    certification: "International Chocolate Academy, GDICP Dubai",
+    certification: "GPDP, TYPSY AUSTRALIA, ICM UK, INTERNATIONAL CHOCOLATE ACADEMY, HIGHFIELD UK",
+    charges: "PKR 425,000"
   },
   {
     id: "grand-diploma-culinary",
-    title: "Grand Diploma in Culinary & Finishing Arts",
+    title: "Grand Diplome en Culinary & Finishing Arts",
     description:
-      "Grand Diploma in Chocolate and Patisserie is a 16-week, highly extensive, practical program. In this diploma, students will acquire the essential techniques for making highly technical culinary creations with professional finishing.",
+      "A comprehensive 16-week program covering essential culinary techniques, international cuisines, and professional finishing arts. This intensive course includes 15 core modules and complementary business classes, preparing you for a successful career in the culinary arts industry.",
     image: "/images/courses/cul.webp",
     duration: "16 weeks",
     level: "Professional",
-    certification: "International Chocolate Academy, ICM UK",
-  },
+    certification: "GPDP, TYPSY AUSTRALIA, ICM UK, INTERNATIONAL CHOCOLATE ACADEMY, HIGHFIELD UK",
+    charges: "PKR 450,000"
+  }
 ]
 
 export default function IntensiveProgramsPage() {
@@ -138,8 +141,8 @@ export default function IntensiveProgramsPage() {
                       {[
                         "Hands-on practical training",
                         "Small batch sizes for personalized attention",
-                        "Industry-recognized certification: International Chocolate Academy",
-                        "Career guidance and placement assistance"
+                        `Industry-recognized certification: ${program.certification}`,
+                        program.charges ? `Program Fee: ${program.charges}` : "Career guidance and placement assistance"
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-center text-[#3c2415]">
                           <span className="text-amber-600 mr-2 text-lg">✓</span>

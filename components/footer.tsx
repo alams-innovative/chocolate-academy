@@ -1,9 +1,20 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Facebook, Instagram, Twitter, ArrowRight, MapPin, Phone, Mail } from "lucide-react"
+import { trackWhatsAppClick } from "@/lib/analytics"
 
 export default function Footer() {
+  const handleWhatsAppClick = () => {
+    // Track this click
+    trackWhatsAppClick({
+      source: "footer",
+      buttonLocation: "footer_whatsapp_button",
+    })
+  }
+
   return (
     <footer className="bg-gradient-to-b from-[#3c2415] to-[#2a1a0f] text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -109,11 +120,11 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" />
-                <span>Plot No. 20-C, Lane 12, Bukhari Commercial, Phase 6, DHA, Karachi</span>
+                <span>185, New Muslim Town Abu Bakar Block Garden Town, Lahore, 54000</span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-amber-500 mr-3 flex-shrink-0" />
-                <span>+92 21 3584 0033</span>
+                <span>+92 309 3336142</span>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-amber-500 mr-3 flex-shrink-0" />
@@ -121,10 +132,43 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6">
+            <div className="mt-6 flex space-x-3">
               <Link href="/contact" passHref legacyBehavior>
-                <Button className="bg-amber-700 hover:bg-amber-600 text-white rounded-md px-6 py-2 text-sm">CONTACT US</Button>
+                <Button className="bg-amber-700 hover:bg-amber-600 text-white rounded-md px-4 py-2 text-sm">
+                  CONTACT US
+                </Button>
               </Link>
+              <a
+                href="https://wa.me/923093336142"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.preventDefault()
+                  trackWhatsAppClick({
+                    source: "footer",
+                    buttonLocation: "footer_whatsapp_button",
+                  })
+                  window.open("https://wa.me/923093336142", "_blank")
+                }}
+              >
+                <Button className="bg-green-600 hover:bg-green-700 text-white rounded-md px-4 py-2 text-sm flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mr-2"
+                  >
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                  WHATSAPP
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -144,7 +188,15 @@ export default function Footer() {
             © {new Date().getFullYear()} Chocolate Academy Pakistan. All rights reserved.
           </p>
           <div className="flex justify-center mt-4 text-xs text-gray-500">
-            Powered by <a href="https://alamsinnovate.com" target="_blank" rel="noopener noreferrer" className="ml-1 text-amber-400 hover:underline">alamsinnovate</a>
+            Powered by{" "}
+            <a
+              href="https://alamsinnovate.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 text-amber-400 hover:underline"
+            >
+              alamsinnovate
+            </a>
           </div>
         </div>
       </div>

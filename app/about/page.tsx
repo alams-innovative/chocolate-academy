@@ -53,39 +53,41 @@ export default function AboutPage() {
               <div className="md:col-span-2 order-2 md:order-1">
                 <div className="prose prose-lg max-w-none">
                   <p className="relative pl-4 border-l-4 border-amber-800 mb-6 text-[#3c2415]">
-                    There are more young CEOs today than ever before, whether it is due to profligate inheritance, a
-                    family business, or own entrepreneurial success. But the rules of the game became tougher when it
-                    comes to a woman. Many incredible stories inspire you to achieve more. Zainab Shafiq is one of the
-                    names who is credited to become supposedly the youngest CEO in Pakistan.
+                    There are more young CEOs today than ever before—whether through substantial inheritance, family-run
+                    enterprises, or their own entrepreneurial achievements. However, the path becomes considerably more
+                    challenging for women. Despite these hurdles, countless inspiring stories continue to motivate
+                    others to reach for more. One such remarkable individual is Zainab Shafiq, who is widely recognized
+                    as one of the youngest CEOs in Pakistan.
                   </p>
 
                   <div className="bg-white p-6 rounded-lg shadow-md mb-6 transform transition-transform hover:scale-[1.01]">
                     <p className="text-[#3c2415]">
-                      Zainab has been lucky enough to have had good support and advice. Her current obsession with
-                      chocolate has led her to establish chocolate academy and take the step into entrepreneurism where
-                      she focuses on her online shop and keeping up-to-date social media links.
+                      Zainab has been fortunate to receive strong support and valuable guidance. Her current passion for
+                      chocolate has inspired her to launch a chocolate academy and venture into entrepreneurship. She
+                      now manages a digital storefront and actively maintains her social media presence to engage with a
+                      growing audience.
                     </p>
                   </div>
 
                   <p className="text-[#3c2415]">
-                    Her plan and ambition is to work on a chocolates that would meet the expectations of all gourmets,
-                    whether they are allergic (to lactose in particular) or vegan, and always with the guarantee of a
-                    product, pure and authentic, far from industrial production.
+                    Her vision is to create chocolate that caters to the refined tastes of all connoisseurs—including
+                    those who are lactose-intolerant or follow a vegan lifestyle. Her unwavering goal is to deliver a
+                    product that is pure, authentic, and far removed from mass industrial production.
                   </p>
 
                   <div className="bg-[#3c2415] text-white p-6 rounded-lg shadow-md my-6">
                     <p className="italic">
-                      "While holding down her high school and another small business, she is zealously working and
-                      burning her midnight oil to run Pakistan's first dedicated chocolate and pastry academy."
+                      "Despite balancing her high school education and another small business, Zainab is tirelessly
+                      dedicating herself to running Pakistan's first dedicated chocolate and pastry academy. Her
+                      relentless determination and late-night efforts are the driving force behind its success."
                     </p>
                   </div>
 
                   <p className="text-[#3c2415]">
-                    Children enrolled in International Chocolate and Pastry Academy have the opportunity to participate
-                    in educational classes in a state-of-the-art kitchen. The unparalleled curriculum at Chocolate
-                    Academy provides new classes each week and ongoing program additions allowing students an
-                    opportunity to explore new themes, recipes, techniques, and so much more, all while doing fun
-                    activities.
+                    At the International Chocolate and Pastry Academy, children enjoy hands-on learning experiences in a
+                    cutting-edge kitchen environment. The academy's dynamic curriculum offers fresh classes every week
+                    and continually evolves to include new themes, recipes, and techniques—all presented through
+                    engaging and enjoyable activities.
                   </p>
 
                   <div className="bg-amber-100 p-6 rounded-lg shadow-md my-6 relative overflow-hidden">
@@ -100,16 +102,16 @@ export default function AboutPage() {
                       ></div>
                     </div>
                     <p className="text-[#3c2415]">
-                      But what's in it for you? Zainab strives not only to create super tasty chocolates but also to
-                      share her passions openly by offering classes to everyone and tasting events. Plus there are
-                      always free samples to be had!!
+                      But what does this mean for you? Zainab is committed not only to crafting delicious chocolate but
+                      also to sharing her passion with the world. She offers workshops for all ages and hosts tasting
+                      events—where you can always count on delightful free samples!
                     </p>
                   </div>
 
                   <p className="text-[#3c2415]">
-                    Recently, against the backdrop of Global Youth Tourism Summit, Zainab Shafiq attended the landmark
-                    Summit happening in Italy. The program included interactive activities oriented towards the
-                    Sustainable Development Goals and how they interact with tourism.
+                    Most recently, Zainab represented Pakistan at the prestigious Global Youth Tourism Summit in Italy.
+                    The event featured interactive activities aligned with the United Nations' Sustainable Development
+                    Goals, highlighting the intersection between tourism and sustainable practices.
                   </p>
                 </div>
               </div>
