@@ -3,13 +3,14 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import TrackingScript from "./track-script"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Chocolate Academy Pakistan",
   description: "Discover the Art of Fine Chocolate at Chocolate Academy Pakistan",
-    generator: 'Fawad Mughal'
+  generator: "Fawad Mughal",
 }
 
 export default function RootLayout({
@@ -19,12 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>     
+      <head>
         <link rel="icon" href="/images/favicon.webp" type="image/webp" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
+          <TrackingScript />
         </ThemeProvider>
       </body>
     </html>

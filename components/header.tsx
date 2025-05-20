@@ -1,13 +1,16 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Search, ShoppingBag, Menu, ChevronDown, X, Instagram } from "lucide-react"
+import { Menu, ChevronDown, X, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { motion } from "framer-motion"
+import { trackWhatsAppClick } from "@/lib/analytics"
 
 export default function HomeHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -20,10 +23,17 @@ export default function HomeHeader() {
     { name: "GIFTING", href: "/gifting" },
     {
       name: "COURSES ",
-      href: "#",
+      href: "/courses",
       dropdown: [
+        { name: "All Courses", href: "/courses" },
         { name: "Workshops", href: "/courses/workshops" },
-        { name: "Intensive Programs", href: "/courses/intensive-programs" },
+        { name: "Lahore", href: "/courses/lahore" },
+        { name: "Rawalpindi", href: "/courses/rawalpindi" },
+        { name: "Islamabad", href: "/courses/islamabad" },
+        { name: "Faisalabad", href: "/courses/faisalabad" },
+        { name: "Karachi", href: "/courses/karachi" },
+        { name: "Sarai Alamgir", href: "/courses/sarai-alamgir" },
+        { name: "DHA", href: "/courses/dha" },
       ],
     },
     { name: "CONTACT US", href: "/contact" },
@@ -46,6 +56,20 @@ export default function HomeHeader() {
     }
   }, [])
 
+  // Function to handle WhatsApp click with tracking
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+
+    console.log("WhatsApp button clicked in header")
+
+    // Track the click with all required parameters
+    trackWhatsAppClick({
+      source: "header",
+      buttonLocation: "top_bar",
+      phoneNumber: "923093336142", // Hardcoded phone number
+    })
+  }
+
   return (
     <>
       {/* Top Bar */}
@@ -53,16 +77,14 @@ export default function HomeHeader() {
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-xs flex items-center">
             <span className="hidden md:inline-block mr-4">Welcome to Chocolate Academy Pakistan</span>
-            <a href="tel:+923248842000" className="hover:text-amber-400 transition-colors">
-              Call Us: 0324-8842000
+            <a href="tel:+923093336142" className="hover:text-amber-400 transition-colors">
+              Call Us: 0309-3336142
             </a>
           </div>
           <div className="text-xs flex items-center space-x-4">
-            <a
-              href="https://wa.me/923248842000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-amber-400 transition-colors flex items-center"
+            <button
+              onClick={handleWhatsAppClick}
+              className="hover:text-amber-400 transition-colors flex items-center cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +97,7 @@ export default function HomeHeader() {
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
               </svg>
               WhatsApp
-            </a>
+            </button>
             <a href="/contact" className="hover:text-amber-400 transition-colors">
               Contact
             </a>
@@ -260,7 +282,12 @@ export default function HomeHeader() {
 
             <div className="flex items-center space-x-4 flex-1 justify-end">
               <span className="text-white text-sm font-semibold mr-2">Follow us</span>
-              <a href="https://instagram.com/chocolateacademy.pk" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition-colors text-white">
+              <a
+                href="https://instagram.com/chocolateacademy.pk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-400 transition-colors text-white"
+              >
                 <Instagram className="h-6 w-6" />
               </a>
             </div>

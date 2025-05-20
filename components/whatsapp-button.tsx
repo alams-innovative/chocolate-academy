@@ -2,20 +2,22 @@
 
 import type React from "react"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { trackWhatsAppClick } from "@/lib/analytics"
+import { Phone } from "lucide-react"
 
 interface WhatsAppButtonProps {
-  phoneNumber: string
+  phoneNumber?: string // Made optional
   message?: string
   productId?: string
   productName?: string
   city?: string
-  source: string
-  buttonLocation: string
+  source?: string
+  buttonLocation?: string
   className?: string
   children?: React.ReactNode
+  variant?: "default" | "outline" | "secondary" | "ghost" | "link" | "destructive"
+  size?: "default" | "sm" | "lg" | "icon"
 }
 
 export default function WhatsAppButton({
@@ -28,57 +30,41 @@ export default function WhatsAppButton({
   buttonLocation,
   className = "",
   children,
+  variant = "default",
+  size = "default",
 }: WhatsAppButtonProps) {
-  const [isTracking, setIsTracking] = useState(false)
-
-  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
 
-    if (isTracking) return // Prevent double clicks
+    // Get current page path if source not provided
+    const currentSource = source || window.location.pathname
+    const currentLocation = buttonLocation || "whatsapp-button"
 
-    setIsTracking(true)
-
-    try {
-      // Format phone number (remove any non-digit characters)
-      const formattedPhone = phoneNumber.replace(/\D/g, "")
-
-      // Encode message for URL
-      const encodedMessage = encodeURIComponent(message)
-
-      // WhatsApp URL
-      const whatsappUrl = `https://wa.me/${formattedPhone}${encodedMessage ? `?text=${encodedMessage}` : ""}`
-
-      // Track the click
-      await trackWhatsAppClick({
-        productId,
-        productName,
-        city,
-        source,
-        buttonLocation,
-      })
-
-      // Open WhatsApp in a new tab
-      window.open(whatsappUrl, "_blank")
-    } catch (error) {
-      console.error("Error handling WhatsApp click:", error)
-    } finally {
-      setIsTracking(false)
-    }
+    // Track the click and open WhatsApp
+    trackWhatsAppClick({
+      productId,
+      productName,
+      city,
+      source: currentSource,
+      buttonLocation: currentLocation,
+      phoneNumber, // This can be undefined, the tracking function will handle it
+      message,
+    })
   }
 
   return (
-    <a
-      href={`https://wa.me/${phoneNumber.replace(/\D/g, "")}${message ? `?text=${encodeURIComponent(message)}` : ""}`}
+    <Button
       onClick={handleClick}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={className}
+      className={`${className} ${variant === "default" ? "bg-[#25D366] hover:bg-[#128C7E] text-white" : ""}`}
+      variant={variant}
+      size={size}
     >
       {children || (
-        <Button className={`bg-green-600 hover:bg-green-700 ${isTracking ? "opacity-75" : ""}`} disabled={isTracking}>
-          {isTracking ? "Opening WhatsApp..." : "Contact via WhatsApp"}
-        </Button>
+        <>
+          <Phone className="mr-2 h-4 w-4" />
+          WhatsApp
+        </>
       )}
-    </a>
+    </Button>
   )
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -8,7 +9,16 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AlertCircle } from "lucide-react"
+import { AlertCircle, LogOut, Trash2 } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import type { WhatsAppClickEvent } from "@/lib/analytics"
@@ -16,19 +26,52 @@ import type { WhatsAppClickEvent } from "@/lib/analytics"
 export default function AnalyticsPage() {
   const [analyticsData, setAnalyticsData] = useState<WhatsAppClickEvent[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isClearing, setIsClearing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState("")
   const [dateRange, setDateRange] = useState({ start: "", end: "" })
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
-    fetchAnalyticsData()
-  }, [])
+    // Check if user is authenticated
+    const isAuthenticated = localStorage.getItem("adminAuthenticated") === "true"
+
+    // Check if authentication has expired
+    const expiresAt = localStorage.getItem("adminAuthExpires")
+    const isExpired = expiresAt ? new Date().getTime() > Number.parseInt(expiresAt) : true
+
+    if (!isAuthenticated || isExpired) {
+      // Clear expired authentication
+      if (isExpired) {
+        localStorage.removeItem("adminAuthenticated")
+        localStorage.removeItem("adminAuthExpires")
+      }
+
+      // Redirect to login page
+      router.push("/admin/login")
+    } else {
+      // Fetch data if authenticated
+      fetchAnalyticsData()
+    }
+  }, [router])
+
+  const handleLogout = () => {
+    // Clear authentication
+    localStorage.removeItem("adminAuthenticated")
+    localStorage.removeItem("adminAuthExpires")
+
+    // Redirect to login page
+    router.push("/admin/login")
+  }
 
   const fetchAnalyticsData = async () => {
     setIsLoading(true)
     setError(null)
     try {
-      const response = await fetch("/api/register/track")
+      // Add a timestamp to prevent caching
+      const timestamp = new Date().getTime()
+      const response = await fetch(`/api/track?t=${timestamp}`)
 
       if (!response.ok) {
         throw new Error(`API responded with status: ${response.status}`)
@@ -49,6 +92,31 @@ export default function AnalyticsPage() {
       setAnalyticsData([])
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const clearAnalyticsData = async () => {
+    setIsClearing(true)
+    try {
+      const response = await fetch("/api/track/clear", {
+        method: "POST",
+      })
+
+      if (!response.ok) {
+        throw new Error(`API responded with status: ${response.status}`)
+      }
+
+      const result = await response.json()
+      console.log("Clear data result:", result)
+
+      // Refresh the data
+      setAnalyticsData([])
+      setDialogOpen(false)
+    } catch (err) {
+      console.error("Error clearing analytics data:", err)
+      setError(err instanceof Error ? err.message : "Failed to clear data")
+    } finally {
+      setIsClearing(false)
     }
   }
 
@@ -147,11 +215,43 @@ export default function AnalyticsPage() {
 
       <main className="flex-1 py-12 bg-[#fdf6f0]">
         <div className="container mx-auto px-4">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-[#3c2415] mb-2">WhatsApp Click Analytics</h1>
-            <p className="text-gray-600">
-              Track and analyze WhatsApp button clicks across your website to understand customer engagement.
-            </p>
+          <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-[#3c2415] mb-2">WhatsApp Click Analytics</h1>
+              <p className="text-gray-600">
+                Track and analyze WhatsApp button clicks across your website to understand customer engagement.
+              </p>
+            </div>
+            <div className="mt-4 md:mt-0 flex gap-2">
+              <Button variant="outline" className="flex items-center gap-2" onClick={handleLogout}>
+                <LogOut className="h-4 w-4" />
+                Logout
+              </Button>
+              <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="destructive" className="flex items-center gap-2">
+                    <Trash2 className="h-4 w-4" />
+                    Clear All Data
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Clear Analytics Data</DialogTitle>
+                    <DialogDescription>
+                      Are you sure you want to clear all WhatsApp click analytics data? This action cannot be undone.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <DialogFooter>
+                    <Button variant="outline" onClick={() => setDialogOpen(false)}>
+                      Cancel
+                    </Button>
+                    <Button variant="destructive" onClick={clearAnalyticsData} disabled={isClearing}>
+                      {isClearing ? "Clearing..." : "Clear All Data"}
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
 
           {error && (
@@ -432,10 +532,6 @@ export default function AnalyticsPage() {
             <Button onClick={fetchAnalyticsData} className="bg-[#3c2415] hover:bg-[#5a3a28]">
               Refresh Data
             </Button>
-
-            <a href="/admin" className="inline-block">
-              <Button variant="outline">Back to Admin</Button>
-            </a>
 
             <Button
               variant="outline"
