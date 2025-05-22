@@ -122,7 +122,7 @@ export default function AboutPage() {
                     <div className="absolute -top-4 -left-4 w-full h-full bg-amber-800 rounded-lg"></div>
                     <div className="relative z-10 bg-white p-3 rounded-lg shadow-lg">
                       <Image
-                        src="/images/about/about.webp"
+                        src="/images/about/about.jpg"
                         alt="Zainab Shafiq - CEO"
                         width={400}
                         height={500}
